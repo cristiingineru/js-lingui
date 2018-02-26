@@ -24,20 +24,14 @@ jobs:
       - checkout
 
       - run:
-          name: Print node version
-          command: node -v
-
-      - run:
-          name: Print node version
-          command: npm install full-icu
-
-      - run:
-          name: pwd
-          command: pwd
+          name: Install full-icu
+          command:
+             - yarn add full-icu -W
+             - export NODE_ICU_DATA=/home/circleci/project/node_modules/full-icu
 
       - run:
           name: Testing full-icu
-          command: env NODE_ICU_DATA=./node_modules/full-icu node test-full-icu.js
+          command: node test-full-icu.js
 
       - run:
           name: Install build tools
@@ -47,27 +41,15 @@ jobs:
           key: node-modules-{{ checksum "yarn.lock" }}
 
       - run:
-          name: Testing full-icu
-          command: env NODE_ICU_DATA=./node_modules/full-icu node test-full-icu.js
-
-      - run:
           name: Install dependencies
           command: yarn install
-
-      - run:
-          name: Testing full-icu
-          command: env NODE_ICU_DATA=./node_modules/full-icu node test-full-icu.js
 
       - save_cache:
           key: node-modules-{{ checksum "yarn.lock" }}
           paths:
               - node_modules
 
-      - run:
-          name: Testing full-icu
-          command: env NODE_ICU_DATA=./node_modules/full-icu node test-full-icu.js
-
-      - run: env NODE_ICU_DATA=./node_modules/full-icu node scripts/test.js
+      - run: node scripts/test.js
 
       - run:
           name: Send coverage report
