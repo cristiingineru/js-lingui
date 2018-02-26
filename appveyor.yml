@@ -6,8 +6,9 @@ install:
   # Get the latest stable version of Node.js or io.js
   - ps: Install-Product node $env:nodejs_version
   - yarn add full-icu -W
-  - setx NODE_ICU_DATA "./node_modules/full-icu"
+  - setx NODE_ICU_DATA "C:\projects\js-lingui"
   - cd
+  - node --icu-data-dir=C:\projects\js-lingui test-full-icu.js
   # install modules
   - yarn install
   - yarn global add yalc
@@ -18,7 +19,7 @@ test_script:
   - node --version
   - yarn --version
   # run tests
-  - node --icu-data-dir=./node_modules/full-icu scripts/test.js
+  - node --icu-data-dir=C:\projects\js-lingui scripts/test.js
 
 # Don't actually build.
 build: off
