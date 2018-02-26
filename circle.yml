@@ -6,9 +6,9 @@ workflows:
     jobs:
       - test-linter
 
-      - test-node8
-#          requires:
-#            - test-linter
+      - test-node8:
+          requires:
+            - test-linter
 
 #      - build-docs:
 #          requires:
