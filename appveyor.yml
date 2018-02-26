@@ -9,7 +9,8 @@ install:
   - yarn install
   - yarn global add yalc
   - yarn add full-icu -W
-  - setx NODE_ICU_DATA "C:\projects\js-lingui"
+  - set NODE_ICU_DATA=C:\projects\js-lingui\node_modules\full-icu
+  - setx NODE_ICU_DATA "C:\projects\js-lingui\node_modules\full-icu"
   - cd
   - node --icu-data-dir=C:\projects\js-lingui\node_modules\full-icu test-full-icu.js
 
