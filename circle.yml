@@ -25,9 +25,11 @@ jobs:
 
       - run:
           name: Install full-icu
-          command:
-             - yarn add full-icu -W
-             - export NODE_ICU_DATA=/home/circleci/project/node_modules/full-icu
+          command: yarn add full-icu -W
+
+      - run:
+          name: Export path to full-icu
+          command: export NODE_ICU_DATA=/home/circleci/project/node_modules/full-icu
 
       - run:
           name: Testing full-icu
