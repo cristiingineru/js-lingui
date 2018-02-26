@@ -11,8 +11,6 @@ install:
   - yarn add full-icu -W
   - set NODE_ICU_DATA=C:\projects\js-lingui\node_modules\full-icu
   - setx NODE_ICU_DATA "C:\projects\js-lingui\node_modules\full-icu"
-  - cd
-  - node --icu-data-dir=C:\projects\js-lingui\node_modules\full-icu test-full-icu.js
 
 # Post-install test scripts.
 test_script:

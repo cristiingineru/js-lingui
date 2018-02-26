@@ -35,10 +35,6 @@ jobs:
           command: yarn add full-icu -W
 
       - run:
-          name: Testing full-icu
-          command: env NODE_ICU_DATA=/home/circleci/project/node_modules/full-icu node test-full-icu.js
-
-      - run:
           name: Install dependencies
           command: yarn install
 
