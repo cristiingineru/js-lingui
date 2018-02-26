@@ -33,7 +33,7 @@ jobs:
 
       - run:
           name: Testing full-icu
-          command: node test-full-icu.js
+          command: env NODE_ICU_DATA=/home/circleci/project/node_modules/full-icu node test-full-icu.js
 
       - run:
           name: Install build tools
@@ -51,7 +51,7 @@ jobs:
           paths:
               - node_modules
 
-      - run: node scripts/test.js
+      - run: env NODE_ICU_DATA=/home/circleci/project/node_modules/full-icu node scripts/test.js
 
       - run:
           name: Send coverage report
